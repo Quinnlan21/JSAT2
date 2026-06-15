@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie List UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <h1>Movie Manager</h1>
+
+    <section class="card">
+      <h2>Movie Maintenance</h2>
+
+      <label for="movieId">Movie ID</label>
+      <input type="number" id="movieId">
+
+      <label for="title">Title</label>
+      <input type="text" id="title">
+
+      <label for="year">Year</label>
+      <input type="number" id="year">
+
+      <label for="rating">Rating</label>
+      <input type="number" id="rating" step="0.1">
+
+      <button onclick="addMovie()">Add Movie</button>
+      <button onclick="updateMovie()">Update Movie</button>
+      <button onclick="deleteMovie()">Delete Movie</button>
+    </section>
+
+    <section class="card">
+      <h2>Display Movie</h2>
+      <button onclick="displayMovies()">Refresh</button>
+      <div id="movieList"></div>
+    </section>
+
+    <section class="card">
+      <h2>Search Movie</h2>
+
+      <input type="number" id="searchId" placeholder="Search by Movie ID">
+      <button onclick="searchById()">Search ID</button>
+
+      <input type="text" id="searchTitle" placeholder="Search by Title">
+      <button onclick="searchByTitle()">Search Title</button>
+
+      <div id="searchResult"></div>
+    </section>
+
+    <section class="card">
+      <h2>Sort Movie</h2>
+      <button onclick="sortAZ()">Sort A-Z</button>
+      <button onclick="sortZA()">Sort Z-A</button>
+      <button onclick="sortBest()">Best Movies</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
