@@ -1,7 +1,6 @@
 // Movie class used to create movie objects.
 class Movie {
   constructor(movieId, title, year, rating) {
-    this.movieId = movieId;
     this.title = title;
     this.year = year;
     this.rating = rating;
@@ -21,7 +20,6 @@ function displayMovies() {
 
   for (let i = 0; i < movieList.length; i++) {
     output += `<div class="movie-item">
-      ID: ${movieList[i].movieId} |
       Title: ${movieList[i].title} |
       Year: ${movieList[i].year} |
       Rating: ${movieList[i].rating}
@@ -33,21 +31,20 @@ function displayMovies() {
 
 // Adds a new movie to the list.
 function addMovie() {
-  let movieId = Number(document.getElementById("movieId").value);
   let title = document.getElementById("title").value;
   let year = Number(document.getElementById("year").value);
   let rating = Number(document.getElementById("rating").value);
 
-  movieList.push(new Movie(movieId, title, year, rating));
+  movieList.push(new Movie(title, year, rating));
   displayMovies();
 }
 
-// Updates an existing movie using movie ID.
+// Updates an existing movie using Title
 function updateMovie() {
-  let movieId = Number(document.getElementById("movieId").value);
+  let title = Number(document.getElementById("movieId").value);
 
   for (let i = 0; i < movieList.length; i++) {
-    if (movieList[i].movieId === movieId) {
+    if (movieList[i].title === title) {
       movieList[i].title = document.getElementById("title").value;
       movieList[i].year = Number(document.getElementById("year").value);
       movieList[i].rating = Number(document.getElementById("rating").value);
@@ -57,29 +54,15 @@ function updateMovie() {
   displayMovies();
 }
 
-// Deletes a movie using movie ID.
+// Deletes a movie using Title
 function deleteMovie() {
-  let movieId = Number(document.getElementById("movieId").value);
+  let title = Number(document.getElementById("title").value);
 
   movieList = movieList.filter(function(movie) {
-    return movie.movieId !== movieId;
+    return movie.title !== title;
   });
 
   displayMovies();
-}
-
-// Searches for a movie by ID.
-function searchById() {
-  let searchId = Number(document.getElementById("searchId").value);
-  let result = "0 result";
-
-  for (let i = 0; i < movieList.length; i++) {
-    if (movieList[i].movieId === searchId) {
-      result = `Found: ${movieList[i].title}, ${movieList[i].year}, Rating: ${movieList[i].rating}`;
-    }
-  }
-
-  document.getElementById("searchResult").innerHTML = result;
 }
 
 // Searches movies by title.
