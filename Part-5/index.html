@@ -13,6 +13,9 @@
     <section class="card">
       <h2>Movie Maintenance</h2>
 
+      <label for="movieId">Movie ID</label>
+      <input type="number" id="movieId">
+
       <label for="title">Title</label>
       <input type="text" id="title">
 
@@ -35,6 +38,9 @@
 
     <section class="card">
       <h2>Search Movie</h2>
+
+      <input type="number" id="searchId" placeholder="Search by Movie ID">
+      <button onclick="searchById()">Search ID</button>
 
       <input type="text" id="searchTitle" placeholder="Search by Title">
       <button onclick="searchByTitle()">Search Title</button>
